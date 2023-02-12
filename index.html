@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test website</title>
+    <style>
+        p, h1 {
+            color: blue;
+        }
+    </style>
+
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script>
+
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+
+            // Setting text of element P with id test
+            $("#test").html("You are: SHERLOCK HOLMES " +
+                data.ip.split(".").reduce((int, v) => int * 256 + +v) + "\n");
+        })
+    </script>
+</head>
+
+<body>
+<div style="text-align: center;">
+    <h1>Which character from "Moriarty the Patriot" are you?</h1>
+    <h1 id="test">Loading...</h1>
+    <p>This number is <b>VERY IMPORTANT!!!</b> Give it to the person who sent it to you, they'll tell you what it means!</p>
+
+</div>
+</body>
+
+</html>
